@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "cncf-example-k8s"
+version = "0.1.0"
+description = ""
+authors = ["wmaucla <zhengweima@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+make = "^0.1.6.post2"
+essential = "^0.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

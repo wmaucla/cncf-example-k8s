@@ -8,3 +8,13 @@ Current features:
 * Harbor for container registry
 * Prometheus / Grafana for monitoring
 * Minikube for k8s
+
+
+## Notes on Setup
+
+For backstage, need to run:
+
+```bash
+eval $(minikube docker-env)
+yarn build-image --tag backstage:1.0.0
+```

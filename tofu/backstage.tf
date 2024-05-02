@@ -17,8 +17,6 @@ resource "kubernetes_secret" "postgres_secrets" {
   }
 }
 
-# TODO- figure out mount path bug
-
 resource "kubernetes_persistent_volume_claim" "postgres_storage_claim" {
   metadata {
     name = "backstage-postgres-storage-claim"
