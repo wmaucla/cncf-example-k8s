@@ -15,7 +15,7 @@ resource "helm_release" "argo" {
   chart      = "argo-cd"
 
   version   = "6.7.18"
-  namespace = "argo"
+  namespace = kubernetes_namespace.argo.metadata[0].name
 
   depends_on = [kubernetes_namespace.argo]
 }

@@ -12,6 +12,12 @@ Current features:
 
 ## Notes on Setup
 
+For general invoking of tf within minikube, need
+
+```bash
+export KUBE_CONFIG_PATH=~/.kube/config
+```
+
 For backstage, need to run:
 
 ```bash
