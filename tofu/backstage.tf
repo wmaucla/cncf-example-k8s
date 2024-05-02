@@ -19,7 +19,7 @@ resource "kubernetes_secret" "postgres_secrets" {
 
 resource "kubernetes_persistent_volume_claim" "postgres_storage_claim" {
   metadata {
-    name = "backstage-postgres-storage-claim"
+    name      = "backstage-postgres-storage-claim"
     namespace = "backstage"
   }
   spec {
@@ -30,7 +30,7 @@ resource "kubernetes_persistent_volume_claim" "postgres_storage_claim" {
       }
     }
     storage_class_name = "backstage-postgres"
-    volume_name = "${kubernetes_persistent_volume.postgres_storage.metadata.0.name}"
+    volume_name        = kubernetes_persistent_volume.postgres_storage.metadata.0.name
   }
 }
 
@@ -38,10 +38,10 @@ resource "kubernetes_persistent_volume" "postgres_storage" {
   metadata {
     name = "backstage-postgres-storage"
     labels = {
-        type = "local"
+      type = "local"
     }
   }
-  
+
   spec {
     capacity = {
       storage = "2Gi"
@@ -58,9 +58,9 @@ resource "kubernetes_persistent_volume" "postgres_storage" {
       required {
         node_selector_term {
           match_expressions {
-            key = "kubernetes.io/hostname"
+            key      = "kubernetes.io/hostname"
             operator = "In"
-            values = ["minikube"]
+            values   = ["minikube"]
           }
         }
       }
@@ -88,9 +88,9 @@ resource "kubernetes_deployment" "postgres" {
         labels = {
           app = "postgres"
         }
-        
+
       }
-  
+
       spec {
         container {
           name  = "postgres"
@@ -101,7 +101,7 @@ resource "kubernetes_deployment" "postgres" {
               name = "postgres-secrets"
             }
           }
-         
+
           port {
             container_port = 5432
           }
@@ -113,7 +113,7 @@ resource "kubernetes_deployment" "postgres" {
           }
         }
 
-        node_name  = "minikube"
+        node_name = "minikube"
 
         volume {
           name = "postgresdb"
@@ -125,8 +125,8 @@ resource "kubernetes_deployment" "postgres" {
     }
   }
 
-  depends_on = [kubernetes_persistent_volume.postgres_storage, 
-  kubernetes_persistent_volume_claim.postgres_storage_claim ]
+  depends_on = [kubernetes_persistent_volume.postgres_storage,
+  kubernetes_persistent_volume_claim.postgres_storage_claim]
 }
 
 resource "kubernetes_service" "postgres" {

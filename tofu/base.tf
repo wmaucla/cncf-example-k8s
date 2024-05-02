@@ -2,7 +2,7 @@ terraform {
   required_version = "~>1.7.0"
 
   required_providers {
-    helm        = "~>2.13"
+    helm = "~>2.13"
     kubectl = {
       source  = "gavinbunney/kubectl"
       version = "~>1.14"

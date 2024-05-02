@@ -8,7 +8,7 @@ Current features:
 * Harbor for container registry
 * Prometheus / Grafana for monitoring
 * Minikube for k8s
-
+* ArgoCD for CI/CD
 
 ## Notes on Setup
 
