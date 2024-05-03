@@ -10,12 +10,20 @@ Current features:
 * Minikube for k8s
 * ArgoCD for CI/CD
 
-## Harbor
+### Harbor
 
 Harbor for container registry:
 ![](images/harbor.png)
 
 In order to configure the ability for harbor to work with minikube and allow for publishing images to the harbor registry, instructions are found [here](https://loft.sh/blog/harbor-kubernetes-self-hosted-container-registry/).
+
+### ArgoCD
+
+ArgoCD setup for continuous delivery:
+
+![](images/argo.png)
+
+Note that argo is connected to another repo, [python-api](https://github.com/wmaucla/python-api), separated to make it easier to follow and mimic best practices. The image does need to be built manually (in absense of a CI system) within the minikube context to make it available to pull.
 
 ## Notes on Setup
 
