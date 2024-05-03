@@ -10,6 +10,13 @@ Current features:
 * Minikube for k8s
 * ArgoCD for CI/CD
 
+## Harbor
+
+Harbor for container registry:
+![](images/harbor.png)
+
+In order to configure the ability for harbor to work with minikube and allow for publishing images to the harbor registry, instructions are found [here](https://loft.sh/blog/harbor-kubernetes-self-hosted-container-registry/).
+
 ## Notes on Setup
 
 For general invoking of tf within minikube, need
